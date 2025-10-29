@@ -4,15 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Pumpkin Breed Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 2em;
       background-color: #fff8f0;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
     }
     h1 {
       color: darkorange;
+      text-align: center;
+    }
+    .pumpkin-image {
+      margin: 1em auto;
+      text-align: center;
+    }
+    .pumpkin-image img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.5em;
+      margin-top: 0.3em;
+      box-sizing: border-box;
     }
     .terms {
       margin-top: 2em;
@@ -25,12 +51,13 @@
     }
     button {
       margin-top: 1em;
-      padding: 0.5em 1em;
+      padding: 0.7em 1.2em;
       background-color: darkorange;
       color: white;
       border: none;
       cursor: pointer;
       font-size: 1em;
+      border-radius: 4px;
     }
     button:hover {
       background-color: #e69500;
@@ -40,20 +67,53 @@
       font-size: 1.5em;
       color: darkgreen;
       margin-top: 2em;
+      text-align: center;
+    }
+    .handwritten-space {
+      margin-top: 2em;
+      padding-top: 1em;
+      border-top: 1px dashed #aaa;
+    }
+    .handwritten-space p {
+      margin: 1em 0;
+      font-size: 1.1em;
+    }
+    .line {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      width: 100%;
+      max-width: 400px;
+      height: 1.2em;
+      vertical-align: bottom;
+      margin-left: .5em;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1em; }
+      input, select, textarea { max-width: 100%; }
     }
   </style>
 </head>
 <body>
   <h1>Pumpkin Breed Application</h1>
+
+  <!-- Responsive image -->
+  <div class="pumpkin-image">
+    pumpkins.jpg
+      pumpkins.jpg
+    </a>
+    <p>Tap the image to view pumpkin options in full size.</p>
+  </div>
+
+  <!-- Main application form -->
   <form id="pumpkinForm">
     <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+    <input type="text" id="name" name="name"><br><br>
 
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <input type="email" id="email" name="email"><br><br>
 
     <label for="breed">Favorite Pumpkin Breed:</label><br>
-    <select id="breed" name="breed" required>
+    <select id="breed" name="breed">
       <option value="">--Select--</option>
       <option value="Jack-o'-Lantern">Jack-o'-Lantern</option>
       <option value="Sugar Pie">Sugar Pie</option>
@@ -66,34 +126,79 @@
       <option value="Atlantic Giant">Atlantic Giant</option>
     </select><br><br>
 
-    <div class="terms">
-      <h2>Terms of Adoption</h2>
-      <ol>
-        <li>I agree to provide a safe and loving home for my copilot pumpkin.</li>
-        <li>I understand that the procedure is permanent and Pew and Microsoft 365 are not responsible for anything the pumpkin does. We are also not responsible for any hacks, prompt injections, or other actions you may encounter in your day to day life that could cause the copilot pumpkin to behave in unexpected ways.</li>
-        <li>I agree to provide proper gourd care, food, water, and shelter.</li>
-        <li>I will not use my copilot pumpkin for illegal activities or harmful purposes.</li>
-        <li>I will update the pumpkin’s models as soon as they are available. I will not try to work around any of the model’s guardrails.</li>
-        <li>I acknowledge that Microsoft and Pew will have access to all conversations, activities, and other information you may encounter. This will be used only for training purposes, though may occasionally be used for prosecution purposes.</li>
-      </ol>
-      <div class="signature-fields">
-        <p>Adopter Signature: ____________________________________</p>
-        <p>Printed Name: ________________________________________</p>
-        <p>Date: _______________________________________________</p>
-      </div>
-    </div><br>
-
     <button type="submit">Submit</button>
   </form>
 
+  <!-- Consent section as its own fillable form -->
+  <div class="terms">
+    <h2>Terms of Adoption</h2>
+    <ol>
+      <li>I agree to provide a safe and loving home for my copilot pumpkin.</li>
+      <li>I understand that the procedure is permanent and Pew and Microsoft 365 are not responsible for anything the pumpkin does. We are also not responsible for any hacks, prompt injections, or other actions you may encounter in your day to day life that could cause the copilot pumpkin to behave in unexpected ways.</li>
+      <li>I agree to provide proper gourd care, food, water, and shelter.</li>
+      <li>I will not use my copilot pumpkin for illegal activities or harmful purposes.</li>
+      <li>I will update the pumpkin’s models as soon as they are available. I will not try to work around any of the model’s guardrails.</li>
+      <li>I acknowledge that Microsoft and Pew will have access to all conversations, activities, and other information you may encounter. This will be used only for training purposes, though may occasionally be used for prosecution purposes.</li>
+    </ol>
+
+    <!-- Fillable consent form -->
+    <form id="consentForm">
+      <div>
+        <label for="consentName">Your Name (for consent):</label><br>
+        <input type="text" id="consentName" name="consentName" placeholder="Type your full name">
+      </div><br>
+
+      <div>
+        <label for="consentInitials">Initials (acknowledgement):</label><br>
+        <input type="text" id="consentInitials" name="consentInitials" placeholder="Type your initials">
+      </div><br>
+
+      <!-- Signature fields as text boxes -->
+      <div class="signature-fields">
+        <p>
+          <label for="adopterSignature">Adopter Signature:</label><br>
+          <input type="text" id="adopterSignature" name="adopterSignature" placeholder="Type your full name">
+        </p>
+        <p>
+          <label for="printedName">Printed Name:</label><br>
+          <input type="text" id="printedName" name="printedName" placeholder="Type your name">
+        </p>
+        <p>
+          <label for="date">Date:</label><br>
+          <input type="text" id="date" name="date" placeholder="MM/DD/YYYY">
+        </p>
+      </div>
+
+      <button type="submit">Submit Consent</button>
+    </form>
+  </div>
+
+  <!-- Extra space for handwritten signature (for printing) -->
+  <div class="handwritten-space">
+    <p>Name:<span class="line"></span></p>
+    <p>Signature:<span class="line"></span></p>
+    <p>Date:<span class="line"></span></p>
+  </div>
+
+  <!-- Hidden message node (we replace the whole body on submit anyway) -->
   <div id="thankYouMessage">
     Thank you for your application. A Gourd Specialist will be with you shortly.
   </div>
 
   <script>
-    document.getElementById('pumpkinForm').addEventListener('submit', function(event) {
+    function showThankYou() {
+      document.body.innerHTML = '<div style="font-family: Arial, sans-serif; padding: 2em; max-width: 800px; margin: 0 auto; text-align:center; font-size:1.5em; color: darkgreen;">Thank you for your application. A Gourd Specialist will be with you shortly.</div>';
+    }
+
+    // Handle both forms: submitting either replaces the page with the thank-you message
+    document.getElementById('pumpkinForm').addEventListener('submit', function (event) {
       event.preventDefault();
-      document.body.innerHTML = '<div id="thankYouMessage">Thank you for your application. A Gourd Specialist will be with you shortly.</div>';
+      showThankYou();
+    });
+
+    document.getElementById('consentForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      showThankYou();
     });
   </script>
 </body>
