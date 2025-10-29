@@ -147,25 +147,12 @@
 
     <!-- Fillable consent form -->
     <form id="consentForm">
-      <div>
-        <label for="consentName">Your Name (for consent):</label><br>
-        <input type="text" id="consentName" name="consentName" placeholder="Type your full name">
-      </div><br>
-
-      <div>
-        <label for="consentInitials">Initials (acknowledgement):</label><br>
-        <input type="text" id="consentInitials" name="consentInitials" placeholder="Type your initials">
-      </div><br>
 
       <!-- Signature fields as text boxes -->
       <div class="signature-fields">
         <p>
           <label for="adopterSignature">Adopter Signature:</label><br>
           <input type="text" id="adopterSignature" name="adopterSignature" placeholder="Type your full name">
-        </p>
-        <p>
-          <label for="printedName">Printed Name:</label><br>
-          <input type="text" id="printedName" name="printedName" placeholder="Type your name">
         </p>
         <p>
           <label for="date">Date:</label><br>
@@ -175,13 +162,6 @@
 
       <button type="submit">Submit Consent</button>
     </form>
-  </div>
-
-  <!-- Extra space for handwritten signature (for printing) -->
-  <div class="handwritten-space">
-    <p>Name:<span class="line"></span></p>
-    <p>Signature:<span class="line"></span></p>
-    <p>Date:<span class="line"></span></p>
   </div>
 
   <!-- Hidden message node (we replace the whole body on submit anyway) -->
