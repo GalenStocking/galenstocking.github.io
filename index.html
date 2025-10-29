@@ -97,12 +97,6 @@
   <h1>Pumpkin Breed Application</h1>
 
   <!-- Responsive image -->
-  <div class="pumpkin-image">
-    pumpkins.jpg
-      pumpkins.jpg
-    </a>
-    <p>Tap the image to view pumpkin options in full size.</p>
-  </div>
 
   <!-- Main application form -->
   <form id="pumpkinForm">
@@ -173,11 +167,6 @@
     }
 
     // Handle both forms: submitting either replaces the page with the thank-you message
-    document.getElementById('pumpkinForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      showThankYou();
-    });
-
     document.getElementById('consentForm').addEventListener('submit', function (event) {
       event.preventDefault();
       showThankYou();
