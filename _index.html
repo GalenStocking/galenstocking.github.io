@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pumpkin Breed Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      background-color: #fff8f0;
+      line-height: 1.6;
+    }
+    h1 {
+      color: darkorange;
+    }
+    .terms {
+      margin-top: 2em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      background-color: #fdf2e9;
+    }
+    .signature-fields {
+      margin-top: 1em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      background-color: darkorange;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #e69500;
+    }
+    #thankYouMessage {
+      display: none;
+      font-size: 1.5em;
+      color: darkgreen;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pumpkin Breed Application</h1>
+  <form id="pumpkinForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="breed">Favorite Pumpkin Breed:</label><br>
+    <select id="breed" name="breed" required>
+      <option value="">--Select--</option>
+      <option value="Jack-o'-Lantern">Jack-o'-Lantern</option>
+      <option value="Sugar Pie">Sugar Pie</option>
+      <option value="Cinderella">Cinderella</option>
+      <option value="Lumina">Lumina</option>
+      <option value="Jarrahdale">Jarrahdale</option>
+      <option value="Baby Boo">Baby Boo</option>
+      <option value="Fairytale">Fairytale</option>
+      <option value="Big Max">Big Max</option>
+      <option value="Atlantic Giant">Atlantic Giant</option>
+    </select><br><br>
+
+    <div class="terms">
+      <h2>Terms of Adoption</h2>
+      <ol>
+        <li>I agree to provide a safe and loving home for my copilot pumpkin.</li>
+        <li>I understand that the procedure is permanent and Pew and Microsoft 365 are not responsible for anything the pumpkin does. We are also not responsible for any hacks, prompt injections, or other actions you may encounter in your day to day life that could cause the copilot pumpkin to behave in unexpected ways.</li>
+        <li>I agree to provide proper gourd care, food, water, and shelter.</li>
+        <li>I will not use my copilot pumpkin for illegal activities or harmful purposes.</li>
+        <li>I will update the pumpkin’s models as soon as they are available. I will not try to work around any of the model’s guardrails.</li>
+        <li>I acknowledge that Microsoft and Pew will have access to all conversations, activities, and other information you may encounter. This will be used only for training purposes, though may occasionally be used for prosecution purposes.</li>
+      </ol>
+      <div class="signature-fields">
+        <p>Adopter Signature: ____________________________________</p>
+        <p>Printed Name: ________________________________________</p>
+        <p>Date: _______________________________________________</p>
+      </div>
+    </div><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="thankYouMessage">
+    Thank you for your application. A Gourd Specialist will be with you shortly.
+  </div>
+
+  <script>
+    document.getElementById('pumpkinForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.body.innerHTML = '<div id="thankYouMessage">Thank you for your application. A Gourd Specialist will be with you shortly.</div>';
+    });
+  </script>
+</body>
+</html>
